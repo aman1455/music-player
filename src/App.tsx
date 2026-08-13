@@ -69,8 +69,8 @@ export const STATIONS: RadioStation[] = [
     icon: '🎤',
     playlistId: 'PL-_HauNKjNPu2dxYiqJaJBwSu0jheV6hv',
     description: 'Hardhitting Indian underground rap & street bass',
-    bgType: 'video',
-    bgUrl: '/dhaba_bg.mp4'
+    bgType: 'image',
+    bgUrl: '/rap_bg.png'
   }
 ];
 
