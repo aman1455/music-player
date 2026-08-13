@@ -418,30 +418,30 @@ export function App() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/85 z-10 pointer-events-none" />
 
       {/* 2. Liquid Glass Top Bar */}
-      <header className="absolute top-0 left-0 right-0 z-30 p-4 lg:p-6 flex items-center justify-between pointer-events-auto">
+      <header className="absolute top-0 left-0 right-0 z-30 p-2.5 sm:p-4 lg:p-6 flex items-center justify-between gap-1.5 sm:gap-4 pointer-events-auto">
         
         {/* Top Left: Clock */}
-        <div id="clock" className="liquid-glass-card px-4 py-1.5 rounded-full text-xs font-semibold text-slate-100 tracking-wider font-mono shadow-xl">
+        <div id="clock" className="liquid-glass-card px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-semibold text-slate-100 tracking-wider font-mono shadow-xl flex-shrink-0">
           {clockText || "3:18:54 PM"}
         </div>
 
         {/* Top Center: Station Switcher Button */}
         <button
           onClick={() => setShowStationModal(!showStationModal)}
-          className="liquid-glass-button px-4 py-1.5 rounded-full text-xs font-semibold text-amber-300 flex items-center space-x-2 shadow-xl hover:scale-105 transition-all"
+          className="liquid-glass-button px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-semibold text-amber-300 flex items-center space-x-1.5 sm:space-x-2 shadow-xl hover:scale-105 transition-all max-w-[140px] xs:max-w-[190px] sm:max-w-none min-w-0"
         >
           <span>{currentStation.icon}</span>
-          <span className="font-bold">{currentStation.name}</span>
-          <span className="text-[10px] text-amber-400 font-mono">({currentStation.hindiName})</span>
-          <ChevronUp className={`w-3.5 h-3.5 text-amber-400 transition-transform ${showStationModal ? 'rotate-180' : ''}`} />
+          <span className="font-bold truncate">{currentStation.name}</span>
+          <span className="text-[9px] sm:text-[10px] text-amber-400 font-mono hidden md:inline">({currentStation.hindiName})</span>
+          <ChevronUp className={`w-3.5 h-3.5 text-amber-400 flex-shrink-0 transition-transform ${showStationModal ? 'rotate-180' : ''}`} />
         </button>
 
         {/* Top Right: Live Online & Playlist Links */}
-        <div className="flex items-center space-x-2.5">
-          <div className="liquid-glass-card px-3.5 py-1.5 rounded-full text-xs font-medium text-slate-100 flex items-center space-x-2 shadow-xl">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_12px_#34d399]"></span>
+        <div className="flex items-center space-x-1.5 sm:space-x-2.5 flex-shrink-0">
+          <div className="liquid-glass-card px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-medium text-slate-100 flex items-center space-x-1.5 sm:space-x-2 shadow-xl">
+            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_12px_#34d399]"></span>
             <span>
-              <strong id="online-count" className="text-emerald-300 font-bold font-mono">{onlineCount}</strong> online
+              <strong id="online-count" className="text-emerald-300 font-bold font-mono">{onlineCount}</strong> <span className="hidden xs:inline">online</span>
             </span>
           </div>
 
@@ -449,9 +449,9 @@ export function App() {
             href={`https://music.youtube.com/playlist?list=${currentStation.playlistId}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="liquid-glass-button px-4 py-1.5 rounded-full text-xs font-semibold text-slate-100 flex items-center space-x-1.5"
+            className="liquid-glass-button px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-semibold text-slate-100 flex items-center space-x-1.5"
           >
-            <span>▶ YT Music</span>
+            <span>▶ <span className="hidden xs:inline">YT Music</span></span>
           </a>
         </div>
 
@@ -467,14 +467,14 @@ export function App() {
         >
           <h1
             id="slogan-hi"
-            className="font-yatra text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-amber-200/95 tracking-wide drop-shadow-[0_4px_35px_rgba(0,0,0,0.95)]"
+            className="font-yatra text-3xl sm:text-6xl md:text-7xl lg:text-8xl text-amber-200/95 tracking-wide drop-shadow-[0_4px_35px_rgba(0,0,0,0.95)]"
           >
             {currentSlogan.hi}
           </h1>
 
           <p
             id="slogan-en"
-            className="mt-3 text-xs sm:text-sm lg:text-base font-semibold text-amber-300/85 tracking-[0.25em] uppercase font-mono drop-shadow-[0_2px_15px_rgba(0,0,0,0.9)]"
+            className="mt-2 sm:mt-3 text-[10px] sm:text-xs lg:text-base font-semibold text-amber-300/85 tracking-[0.2em] sm:tracking-[0.25em] uppercase font-mono drop-shadow-[0_2px_15px_rgba(0,0,0,0.9)]"
           >
             {currentSlogan.en}
           </p>
@@ -482,14 +482,14 @@ export function App() {
       </main>
 
       {/* 4. Liquid Glass Player Pill (Bottom Floating Console) */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 w-[94%] max-w-xl pointer-events-auto">
+      <div className="absolute bottom-3 sm:bottom-6 left-1/2 -translate-x-1/2 z-30 w-[95%] sm:w-[94%] max-w-xl pointer-events-auto">
         
         {/* Station Selector Drawer Modal */}
         {showStationModal && (
-          <div className="mb-3 liquid-glass-pill rounded-3xl p-4 shadow-2xl animate-in fade-in zoom-in-95">
-            <div className="flex items-center justify-between border-b border-white/20 pb-2.5 mb-3">
-              <div className="flex items-center space-x-2 text-xs font-bold text-amber-300 uppercase tracking-widest font-mono">
-                <Sparkles className="w-4 h-4 text-amber-400" />
+          <div className="mb-2 sm:mb-3 liquid-glass-pill rounded-2xl sm:rounded-3xl p-3 sm:p-4 shadow-2xl animate-in fade-in zoom-in-95 max-h-[50vh] overflow-y-auto">
+            <div className="flex items-center justify-between border-b border-white/20 pb-2 mb-2.5">
+              <div className="flex items-center space-x-1.5 sm:space-x-2 text-[10px] sm:text-xs font-bold text-amber-300 uppercase tracking-widest font-mono">
+                <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-400" />
                 <span>SELECT HIGHWAY RADIO CHANNEL</span>
               </div>
               <button
@@ -500,14 +500,14 @@ export function App() {
               </button>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2">
               {STATIONS.map((st, idx) => {
                 const isActive = idx === currentStationIndex;
                 return (
                   <div
                     key={st.id}
                     onClick={() => handleSelectStation(idx)}
-                    className={`p-3 rounded-2xl cursor-pointer border transition-all flex items-center justify-between ${
+                    className={`p-2.5 sm:p-3 rounded-xl sm:rounded-2xl cursor-pointer border transition-all flex items-center justify-between ${
                       isActive
                         ? 'bg-amber-500/25 border-amber-400 shadow-[0_0_20px_rgba(255,170,0,0.4)]'
                         : 'liquid-glass-button hover:border-white/40'
@@ -528,7 +528,7 @@ export function App() {
           </div>
         )}
 
-        <div className="liquid-glass-pill rounded-[2rem] p-4 flex items-center justify-between gap-3 sm:gap-4">
+        <div className="liquid-glass-pill rounded-2xl sm:rounded-[2rem] p-2.5 sm:p-4 flex items-center justify-between gap-2.5 sm:gap-4">
           
           {/* Liquid Glass Album Artwork */}
           <div className="relative flex-shrink-0">
@@ -536,22 +536,22 @@ export function App() {
               id="disc"
               src={coverUrl}
               alt="Track Thumbnail"
-              className={`w-12 h-12 sm:w-13 sm:h-13 rounded-2xl object-cover border border-white/30 shadow-[0_8px_25px_rgba(0,0,0,0.6)] transition-all ${
+              className={`w-10 h-10 sm:w-13 sm:h-13 rounded-xl sm:rounded-2xl object-cover border border-white/30 shadow-[0_8px_25px_rgba(0,0,0,0.6)] transition-all ${
                 isPlaying ? 'shadow-[0_0_25px_rgba(255,170,0,0.5)] scale-105 ring-2 ring-amber-400/40 animate-spin-tape' : ''
               }`}
             />
           </div>
 
           {/* Track Meta & Liquid Progress Bar */}
-          <div className="flex-1 min-w-0 px-1">
+          <div className="flex-1 min-w-0 px-0.5 sm:px-1">
             <div className="flex items-center justify-between">
               <h4 id="track-title" className="font-bold text-white truncate text-xs sm:text-sm tracking-tight drop-shadow-sm">
                 {trackTitle}
               </h4>
             </div>
-            <p id="track-artist" className="text-[11px] text-slate-300/90 truncate font-medium flex items-center gap-1.5">
-              <span>{trackArtist}</span>
-              <span className="text-amber-400 font-mono text-[10px]">({currentStation.name})</span>
+            <p id="track-artist" className="text-[10px] sm:text-[11px] text-slate-300/90 truncate font-medium flex items-center gap-1.5">
+              <span className="truncate">{trackArtist}</span>
+              <span className="text-amber-400 font-mono text-[9px] sm:text-[10px] hidden xs:inline flex-shrink-0">({currentStation.name})</span>
             </p>
 
             {/* Liquid Progress Track */}
@@ -559,44 +559,44 @@ export function App() {
               id="progress-bar"
               ref={progressBarRef}
               onClick={handleSeek}
-              className="mt-2 flex items-center space-x-2.5 cursor-pointer group"
+              className="mt-1.5 sm:mt-2 flex items-center space-x-2 sm:space-x-2.5 cursor-pointer group"
             >
-              <div className="flex-1 h-2 liquid-progress-track rounded-full overflow-hidden relative">
+              <div className="flex-1 h-1.5 sm:h-2 liquid-progress-track rounded-full overflow-hidden relative">
                 <div
                   id="progress-fill"
                   className="h-full liquid-progress-fill rounded-full transition-all duration-150"
                   style={{ width: `${progressWidth}%` }}
                 />
               </div>
-              <span id="track-time" className="text-[10px] font-mono text-slate-200/90 flex-shrink-0 font-medium drop-shadow-sm">
+              <span id="track-time" className="text-[9px] sm:text-[10px] font-mono text-slate-200/90 flex-shrink-0 font-medium drop-shadow-sm">
                 {timeText}
               </span>
             </div>
           </div>
 
           {/* Apple Music Style Tactile Control Buttons */}
-          <div className="flex items-center space-x-2 flex-shrink-0">
+          <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0">
             <button
               id="prev-btn"
               onClick={handlePrev}
               disabled={!isReady}
-              className="apple-control-btn p-2.5 rounded-full text-slate-100 hover:text-white disabled:opacity-40"
+              className="apple-control-btn p-2 sm:p-2.5 rounded-full text-slate-100 hover:text-white disabled:opacity-40"
               title="Previous Track"
             >
-              <SkipBack className="w-4 h-4 fill-current" />
+              <SkipBack className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
             </button>
 
             <button
               id="play-pause"
               onClick={handlePlayPause}
               disabled={!isReady}
-              className="w-11 h-11 sm:w-12 sm:h-12 rounded-full apple-play-button flex items-center justify-center disabled:opacity-40"
+              className="w-10 h-10 sm:w-12 sm:h-12 rounded-full apple-play-button flex items-center justify-center disabled:opacity-40"
               title={isPlaying ? 'Pause' : 'Play'}
             >
               {isPlaying ? (
-                <Pause id="icon-pause" className="w-5 h-5 fill-slate-900 text-slate-900" />
+                <Pause id="icon-pause" className="w-4.5 h-4.5 sm:w-5 sm:h-5 fill-slate-900 text-slate-900" />
               ) : (
-                <Play id="icon-play" className="w-5 h-5 fill-slate-900 text-slate-900 ml-0.5" />
+                <Play id="icon-play" className="w-4.5 h-4.5 sm:w-5 sm:h-5 fill-slate-900 text-slate-900 ml-0.5" />
               )}
             </button>
 
@@ -604,10 +604,10 @@ export function App() {
               id="next-btn"
               onClick={handleNext}
               disabled={!isReady}
-              className="apple-control-btn p-2.5 rounded-full text-slate-100 hover:text-white disabled:opacity-40"
+              className="apple-control-btn p-2 sm:p-2.5 rounded-full text-slate-100 hover:text-white disabled:opacity-40"
               title="Next Track"
             >
-              <SkipForward className="w-4 h-4 fill-current" />
+              <SkipForward className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
             </button>
           </div>
 
