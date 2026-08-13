@@ -19,6 +19,7 @@ export interface RadioStation {
   description: string;
   bgType?: 'video' | 'image';
   bgUrl?: string;
+  slogans: { hi: string; en: string }[];
 }
 
 export const STATIONS: RadioStation[] = [
@@ -30,7 +31,15 @@ export const STATIONS: RadioStation[] = [
     playlistId: 'PLgObA3pAqvOh87Z03QG8Z4xE-uqlAWSBy',
     description: 'Nostalgic 90s highway driver classics',
     bgType: 'video',
-    bgUrl: '/dhaba_bg.mp4'
+    bgUrl: '/dhaba_bg.mp4',
+    slogans: [
+      { hi: "बुरी नज़र वाले तेरा मुँह काला", en: "EVIL-EYED ONE, MAY YOUR FACE TURN BLACK" },
+      { hi: "हॉर्न ओके प्लीज़", en: "HORN OK PLEASE" },
+      { hi: "देखो मगर प्यार से", en: "LOOK, BUT WITH LOVE" },
+      { hi: "माँ की दुआ साथ सदा", en: "A MOTHER'S BLESSING RIDES ALONG" },
+      { hi: "नज़र हटी दुर्घटना घटी", en: "ONE GLANCE AWAY, ACCIDENT CLOSER" },
+      { hi: "चलती का नाम गाड़ी", en: "A TRUCK IS ONLY ALIVE WHEN IT MOVES" }
+    ]
   },
   {
     id: 'haryanvi',
@@ -40,7 +49,13 @@ export const STATIONS: RadioStation[] = [
     playlistId: 'PLMRKdK25AuPWnf7hbPeAJAQt46-rCK_NO',
     description: 'High energy Haryanvi DJ beats & truck anthems',
     bgType: 'image',
-    bgUrl: '/haryanvi_bg.png'
+    bgUrl: '/haryanvi_bg.png',
+    slogans: [
+      { hi: "ठाठ हरियाणे का, रोब अपना", en: "ROYAL SWAG OF HARYANA, OUR OWN ATTITUDE" },
+      { hi: "अपना स्टाइल, अपनी पहचान", en: "OUR STYLE, OUR IDENTITY" },
+      { hi: "गाड़ी हरियाणे की, रोला अपना", en: "HARYANVI VEHICLE, DESI SWAG" },
+      { hi: "राम राम सारे भाईया ने", en: "RESPECT & GREETINGS TO ALL BROTHERS" }
+    ]
   },
   {
     id: 'garhwali',
@@ -50,7 +65,13 @@ export const STATIONS: RadioStation[] = [
     playlistId: 'PLeQnRhly9c6RPdM0cp0lxK5QjBlkglPz5',
     description: 'Soulful Uttarakhand hills & Narendra Singh Negi classics',
     bgType: 'image',
-    bgUrl: '/garhwali_bg.png'
+    bgUrl: '/garhwali_bg.png',
+    slogans: [
+      { hi: "देवभूमि की शान, हमारी पहचान", en: "PRIDE OF DEVBHOOMI, OUR IDENTITY" },
+      { hi: "पहाड़ों का स्वैग, अपना अंदाज़", en: "SWAG OF THE HILLS, OUR OWN STYLE" },
+      { hi: "जय बद्री केदार, पहाड़ों की पुकार", en: "VICTORY TO BADRI KEDAR, CALL OF THE HILLS" },
+      { hi: "उत्तराखंडी धुन, पहाड़ों का सुकून", en: "UTTARAKHANDI TUNES, MOUNTAIN PEACE" }
+    ]
   },
   {
     id: 'himachali',
@@ -60,7 +81,13 @@ export const STATIONS: RadioStation[] = [
     playlistId: 'PL1NiXqvwiwb8m20OMRal9pex9gNAffd9e',
     description: 'Traditional Devbhoomi Himachal pahadi folk tunes',
     bgType: 'image',
-    bgUrl: '/himachali_bg.png'
+    bgUrl: '/himachali_bg.png',
+    slogans: [
+      { hi: "पहाड़ों की शान, आपका स्टाइल", en: "PRIDE OF THE HILLS, YOUR STYLE" },
+      { hi: "हिमाचल रो स्वैग, सबसे वखरा", en: "HIMACHALI SWAG, STANDS OUT FROM ALL" },
+      { hi: "देवभूमि हिमाचल रो लोक संगीत", en: "FOLK MUSIC OF DEVBHOOMI HIMACHAL" },
+      { hi: "ठंडी हवा, मीठी हिमाचली धुने", en: "COOL BREEZE, SWEET PAHALI MELODIES" }
+    ]
   },
   {
     id: 'rap',
@@ -70,18 +97,14 @@ export const STATIONS: RadioStation[] = [
     playlistId: 'PL-_HauNKjNPu2dxYiqJaJBwSu0jheV6hv',
     description: 'Hardhitting Indian underground rap & street bass',
     bgType: 'image',
-    bgUrl: '/rap_bg.png'
+    bgUrl: '/rap_bg.png',
+    slogans: [
+      { hi: "अपना टाइम, अपनी स्टोरी, अपनी पहचान", en: "OUR TIME, OUR STORY, OUR IDENTITY" },
+      { hi: "यह सिर्फ म्यूजिक नहीं, यह मूवमेंट है", en: "THIS ISN'T JUST MUSIC, IT'S A MOVEMENT" },
+      { hi: "सच बोल, दिल से बोल, डर मत", en: "SPEAK TRUTH, SPEAK FROM HEART, FEAR NOTHING" },
+      { hi: "रूट्स, रेस्पेक्ट, रियल देसी हिप-हॉप", en: "ROOTS, RESPECT, REAL DESI HIP-HOP" }
+    ]
   }
-];
-
-const SLOGANS = [
-  { hi: "बुरी नज़र वाले तेरा मुँह काला", en: "Evil-eyed one, may your face turn black" },
-  { hi: "हॉर्न ओके प्लीज़", en: "Honk before overtaking" },
-  { hi: "देखो मगर प्यार से", en: "Look, but with love" },
-  { hi: "माँ की दुआ साथ सदा", en: "A mother's blessing rides along" },
-  { hi: "नज़र हटी दुर्घटना घटी", en: "One glance away, one accident closer" },
-  { hi: "फिर मिलेंगे", en: "We'll meet again" },
-  { hi: "चलती का नाम गाड़ी", en: "A truck is only alive when it moves" },
 ];
 
 export function App() {
@@ -182,17 +205,26 @@ export function App() {
     };
   }, []);
 
-  // 3. Slogan Rotation
+  // Reset slogan index when station changes
+  useEffect(() => {
+    setSloganIndex(0);
+    setShowSlogan(true);
+  }, [currentStationIndex]);
+
+  // 3. Station-Specific Slogan Rotation
   useEffect(() => {
     const interval = setInterval(() => {
       setShowSlogan(false);
       setTimeout(() => {
-        setSloganIndex((prev) => (prev + 1) % SLOGANS.length);
+        setSloganIndex((prev) => {
+          const slogans = currentStationRef.current.slogans;
+          return (prev + 1) % slogans.length;
+        });
         setShowSlogan(true);
       }, 550);
     }, 4600);
     return () => clearInterval(interval);
-  }, []);
+  }, [currentStationIndex]);
 
   // 4. Time Formatter
   function fmt(seconds: number) {
@@ -408,7 +440,8 @@ export function App() {
     playerRef.current.seekTo(duration * ratio, true);
   };
 
-  const currentSlogan = SLOGANS[sloganIndex];
+  const stationSlogans = currentStation.slogans;
+  const currentSlogan = stationSlogans[sloganIndex % stationSlogans.length] || stationSlogans[0];
 
   return (
     <div className="relative w-screen h-screen overflow-hidden bg-slate-950 font-sans select-none text-slate-100">
