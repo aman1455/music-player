@@ -49,8 +49,8 @@ export const STATIONS: RadioStation[] = [
     icon: '🏔️',
     playlistId: 'PLeQnRhly9c6RPdM0cp0lxK5QjBlkglPz5',
     description: 'Soulful Uttarakhand hills & Narendra Singh Negi classics',
-    bgType: 'video',
-    bgUrl: '/dhaba_bg.mp4'
+    bgType: 'image',
+    bgUrl: '/garhwali_bg.png'
   },
   {
     id: 'himachali',
