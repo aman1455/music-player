@@ -17,6 +17,8 @@ export interface RadioStation {
   icon: string;
   playlistId: string;
   description: string;
+  bgType?: 'video' | 'image';
+  bgUrl?: string;
 }
 
 export const STATIONS: RadioStation[] = [
@@ -26,7 +28,9 @@ export const STATIONS: RadioStation[] = [
     hindiName: '90s बॉलीवुड हिट्स',
     icon: '📻',
     playlistId: 'PLgObA3pAqvOh87Z03QG8Z4xE-uqlAWSBy',
-    description: 'Nostalgic 90s highway driver classics'
+    description: 'Nostalgic 90s highway driver classics',
+    bgType: 'video',
+    bgUrl: '/dhaba_bg.mp4'
   },
   {
     id: 'haryanvi',
@@ -34,7 +38,9 @@ export const STATIONS: RadioStation[] = [
     hindiName: 'हरियाणवी सुपरहिट्स',
     icon: '🌾',
     playlistId: 'PLMRKdK25AuPWnf7hbPeAJAQt46-rCK_NO',
-    description: 'High energy Haryanvi DJ beats & truck anthems'
+    description: 'High energy Haryanvi DJ beats & truck anthems',
+    bgType: 'image',
+    bgUrl: '/haryanvi_bg.png'
   },
   {
     id: 'garhwali',
@@ -42,7 +48,9 @@ export const STATIONS: RadioStation[] = [
     hindiName: 'गढ़वाली पहाड़ी गीत',
     icon: '🏔️',
     playlistId: 'PLeQnRhly9c6RPdM0cp0lxK5QjBlkglPz5',
-    description: 'Soulful Uttarakhand hills & Narendra Singh Negi classics'
+    description: 'Soulful Uttarakhand hills & Narendra Singh Negi classics',
+    bgType: 'video',
+    bgUrl: '/dhaba_bg.mp4'
   },
   {
     id: 'himachali',
@@ -50,7 +58,9 @@ export const STATIONS: RadioStation[] = [
     hindiName: 'हिमाचली लोक संगीत',
     icon: '🌲',
     playlistId: 'PL1NiXqvwiwb8m20OMRal9pex9gNAffd9e',
-    description: 'Traditional Devbhoomi Himachal pahadi folk tunes'
+    description: 'Traditional Devbhoomi Himachal pahadi folk tunes',
+    bgType: 'video',
+    bgUrl: '/dhaba_bg.mp4'
   },
   {
     id: 'rap',
@@ -58,7 +68,9 @@ export const STATIONS: RadioStation[] = [
     hindiName: 'देसी रैप और हिप-हॉप',
     icon: '🎤',
     playlistId: 'PL-_HauNKjNPu2dxYiqJaJBwSu0jheV6hv',
-    description: 'Hardhitting Indian underground rap & street bass'
+    description: 'Hardhitting Indian underground rap & street bass',
+    bgType: 'video',
+    bgUrl: '/dhaba_bg.mp4'
   }
 ];
 
@@ -404,15 +416,25 @@ export function App() {
       {/* Hidden YouTube Player IFrame Container */}
       <div id="youtube-player" className="absolute top-0 left-0 opacity-0 pointer-events-none w-1 h-1" />
 
-      {/* 1. Fullscreen Background Video */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover object-center z-0 scale-105"
-        src="/dhaba_bg.mp4"
-      />
+      {/* 1. Dynamic Fullscreen Background (Image or Video) */}
+      {currentStation.bgType === 'image' && currentStation.bgUrl ? (
+        <img
+          key={currentStation.id}
+          src={currentStation.bgUrl}
+          alt={currentStation.name}
+          className="absolute inset-0 w-full h-full object-cover object-center z-0 scale-105 transition-opacity duration-700 animate-in fade-in"
+        />
+      ) : (
+        <video
+          key={currentStation.bgUrl || 'default-video'}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover object-center z-0 scale-105"
+          src={currentStation.bgUrl || "/dhaba_bg.mp4"}
+        />
+      )}
 
       {/* Liquid Dark Vignette Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black/85 z-10 pointer-events-none" />
