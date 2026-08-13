@@ -59,8 +59,8 @@ export const STATIONS: RadioStation[] = [
     icon: '🌲',
     playlistId: 'PL1NiXqvwiwb8m20OMRal9pex9gNAffd9e',
     description: 'Traditional Devbhoomi Himachal pahadi folk tunes',
-    bgType: 'video',
-    bgUrl: '/dhaba_bg.mp4'
+    bgType: 'image',
+    bgUrl: '/himachali_bg.png'
   },
   {
     id: 'rap',
