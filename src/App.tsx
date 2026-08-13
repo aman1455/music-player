@@ -537,7 +537,7 @@ export function App() {
       </main>
 
       {/* 4. Liquid Glass Player Pill (Bottom Floating Console) */}
-      <div className="absolute bottom-5 sm:bottom-7 left-1/2 -translate-x-1/2 z-30 w-[95%] sm:w-[94%] max-w-xl pointer-events-auto">
+      <div className="absolute bottom-10 sm:bottom-14 left-1/2 -translate-x-1/2 z-30 w-[95%] sm:w-[94%] max-w-xl pointer-events-auto">
         
         {/* Station Selector Drawer Modal */}
         {showStationModal && (
